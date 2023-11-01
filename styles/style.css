@@ -198,9 +198,73 @@ body {
 
 .relatorio__tabela tr:hover {background-color: #c9dbca;}
 
+/* Chamados */
 
+.chamado {
+    padding-top: 2%;
+}
 
+.formulario {
+    background:#e7dfdf; 
+    box-shadow: 1px 0px 1.2px 0px #e3e3e3;
+    border-radius:2%;
+    max-width: 50%;
+    margin: auto;
+    padding:2em;
+  }
 
+  .formulario__titulo {
+    width: 100%;
+    float: left;
+    color: #696969;
+    margin-bottom: 1rem;
+    border-bottom: 1px #eee solid;
+    padding-bottom: 1rem;
+  }
+  
+  .formulario__grupo { 
+    position:relative;
+    margin-bottom: 1rem;
+  }
+  
+  .input {
+    border: 3px solid #696969;
+    background: none;
+    padding: 0.8em;
+    font-size: 1rem;
+    color: #696969;
+    width: 90%;
+  }
+
+  .textarea {
+    border: 3px solid #696969;
+    width: 60%;
+    background: none;
+    resize: none;
+    padding: 0.8em;
+    font-size: 1em;
+    color: #696969;
+  }
+  
+  .formulario__label {
+    position: absolute;
+    left: 15px;
+    color: #696969;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 350ms;
+  }
+
+  .formulario__botao {
+    margin-top: 1%;
+    color: var(--terciario);
+    width: 10%;
+    height: 2rem;
+    background-color: #206ccf;
+    border: none;
+  }
+
+  /* */
 
 .rodape {
     background-color: var(--primario);

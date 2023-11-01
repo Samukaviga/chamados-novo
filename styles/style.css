@@ -17,6 +17,7 @@
 }
 
 body {
+    position: relative;
     box-sizing: border-box;
     font-family: var(--font-primaria);
     background-color: var(--hover);
@@ -45,7 +46,9 @@ body {
 
 .cabecario__navegacao {
     display: flex;
-    gap: 15%;
+    gap: 5%;
+    justify-content: center;
+    
 }
 
 .cabecario__navegacao__link {
@@ -53,6 +56,11 @@ body {
     color: var(--secundario);
     font-weight: 400;
     font-size: 1.2rem;
+   
+}
+
+.cabecario__navegacao__engrenagem{
+    width: 6%;
 }
 
 .conteudo {
@@ -83,6 +91,80 @@ body {
     font-size: 1.5em;
 }
 
+.container__tarefa__item_link {
+    text-decoration: none;
+}
+
+.popup__engrenagem {
+    display: none;
+    position: absolute;
+    padding: 0.5% 1% 0 1%;
+    width: 7%;
+    height: 6%;
+    background-color: var(--numero);
+    top: 6%;
+    right: 43%;
+}
+
+.popup__engrenagem__lista {
+    text-align: start;
+    list-style: none;
+}
+
+.popup__engrenagem__link {
+    text-decoration: none;
+    color: var(--terciario);
+}
+
+.popup__engrenagem__item {
+    font-size: 0.8rem;
+}
+
+.popup__engrenagem__item:hover {
+    background-color: #86A789;
+}
+
+
+.popup__lateral {
+    display: none;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-color: var(--numero);
+    right: 0%;
+    top: 0%;
+}
+
+.popup__lateral__fechar {
+    padding: 3% 5%;
+}
+
+#popup__lateral__fechar__link{
+    text-decoration: none;
+}
+
+.popup__lateral__fechar__imagem {
+    width: 5%;
+}
+
+.popup__lateral__relatorio {
+    padding: 2% 5%;
+}
+
+.popup__lateral__relatorio__tabela th {
+    text-align: left;
+    background-color: #739072;
+    color: var(--terciario)
+}
+
+.popup__lateral__relatorio__tabela td, .popup__lateral__relatorio__tabela th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.popup__lateral__relatorio__tabela td {
+    color: var(--secundario);
+}
 
 /*RELATORIO*/
 

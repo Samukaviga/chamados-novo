@@ -11,9 +11,9 @@
         <nav class="cabecario__menu">
             <img class="cabecario__logo" src="../../assets/logo.png" alt="">
             <div class="cabecario__navegacao" >
-                <a class="cabecario__navegacao__link" href="./index.html">Home</a>
-                <a class="cabecario__navegacao__link" href="./relatorio.html">Relatorio</a>
-                
+                <a class="cabecario__navegacao__link" href="../membro/">Home</a>
+                <a class="cabecario__navegacao__link" href="../membro/relatorio.html">Relatorio</a>
+                <a class="cabecario__navegacao__link" id="mostrar__engrenagem" href="#"><img class="cabecario__navegacao__engrenagem" src="../../assets/7596520.png" alt=""></a>
             </div>
         </nav>
     </header>
@@ -27,7 +27,8 @@
                   <th>Setor</th>
                   <th>Titulo</th>
                   <th>Descricao</th>
-                  <th>Prioridade</th>
+                  <th>Data Estimada</th>
+                  <th>Concluido</th>
                 </tr>
                 <tr>
                   <td>1</td>
@@ -35,6 +36,7 @@
                   <td>TI</td>
                   <td>Site</td>
                   <td>refatorando codigo</td>
+                  <td>02/11/ - Quinta feira</td>
                   <td>
                     <div class="form-check form-switch d-flex justify-content-center align-items-center">
                         <input class="form-check-input" type="checkbox" role="switch">
@@ -45,9 +47,16 @@
             
         </section>
 
+         <!-- ENGRENAGEM --->
+    
+        <div id="popup__engrenagem__abrir" class="popup__engrenagem">
+            <ul class="popup__engrenagem__lista">
+            <a class="popup__engrenagem__link" href=""><li class="popup__engrenagem__item">Alterar Senha</li></a>
+                <a class="popup__engrenagem__link" href=""><li class="popup__engrenagem__item">Sair</li></a>
+            </ul>
+        </div>
+
     </main>
-    <!--<footer class="rodape">
-            <p>Desenvolvido por Samuel</p>
-    </footer> -->
+<script src="../../js/funcoes.js" ></script>
 </body>
 </html>

@@ -205,7 +205,7 @@ body {
 }
 
 .formulario {
-    background:#e7dfdf; 
+    background:#eee8e8; 
     box-shadow: 1px 0px 1.2px 0px #e3e3e3;
     border-radius:2%;
     max-width: 50%;
@@ -216,7 +216,7 @@ body {
   .formulario__titulo {
     width: 100%;
     float: left;
-    color: #696969;
+    color: var(--numero);
     margin-bottom: 1rem;
     border-bottom: 1px #eee solid;
     padding-bottom: 1rem;
@@ -228,7 +228,7 @@ body {
   }
   
   .input {
-    border: 3px solid #696969;
+    border: 3px solid var(--numero);
     background: none;
     padding: 0.8em;
     font-size: 1rem;
@@ -237,7 +237,7 @@ body {
   }
 
   .textarea {
-    border: 3px solid #696969;
+    border: 3px solid var(--numero);
     width: 60%;
     background: none;
     resize: none;
@@ -264,7 +264,15 @@ body {
     border: none;
   }
 
-  /* */
+  /* Alterar Senha */
+
+  .formulario__alterar {
+    width: 40rem;
+  }
+
+  .formulario__alterar__botao{
+    width: 15%;
+  }
 
 .rodape {
     background-color: var(--primario);

@@ -10,7 +10,6 @@
     --secundario: #D2E3C8;
     --terciario: #EBF3E8;
     --hover: #B2C8BA; 
-
     --numero: #748E63;
 
     --font-primaria: 'Playpen Sans', cursive;
@@ -27,7 +26,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15% 25%;
+    padding: 10% 25%;
+}
+
+.alterar__senha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 25%;
 }
 
 .login__container {
@@ -36,7 +42,7 @@ body {
     gap: 1rem;
     align-items: center;
     width: 30%;
-    padding: 2% 10%;
+    padding: 8% 10%;
     background-color: #237030;
     border-radius: 10%;
 }
@@ -64,6 +70,10 @@ body {
     height: 2rem;
 }
 
+.login__label {
+    padding-top: 3%;
+}
+
 .login__conteudo__botao{
     display: flex;
     align-items: center;
@@ -71,7 +81,7 @@ body {
 }
 
 .login__input__botao {
-    margin-top: 5%;
+    margin-top: 20%;
     color: var(--terciario);
     width: 95%;
     height: 2rem;
@@ -79,3 +89,5 @@ body {
     border-radius: 10%;
     border: none;
 }
+
+/*Alterar Senha*/

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primario: #86A789;
+    --secundario: #D2E3C8;
+    --terciario: #EBF3E8;
+    --hover: #B2C8BA; 
+
+    --numero: #748E63;
+
+    --font-primaria: 'Playpen Sans', cursive;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: var(--font-primaria);
+    background-color: var(--hover);
+}
+
+.cabecario {
+    padding: 1% 20% 1% 6%;
+    background-color: var(--primario);
+}
+
+.cabecario__logo {
+    width: 15%;
+}
+
+.cabecario__menu {
+    display: flex;
+    justify-content:flex-start;
+    gap: 24%;
+    align-items: center;
+    
+}
+
+.cabecario__titulo {
+    color: var(--secundario);
+}
+
+.cabecario__navegacao {
+    display: flex;
+    gap: 15%;
+}
+
+.cabecario__navegacao__link {
+    text-decoration: none;
+    color: var(--secundario);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.conteudo {
+    height: 100vh;
+}
+
+.container__tarefa {
+    display: flex;
+    gap: 5%;
+    padding: 2% 20% 2% 20%;
+}
+
+.container__tarefa__item {
+    border: var(--primario) 2px solid;
+    border-radius: 1rem;
+    padding: 2%;
+    text-align: center;
+}
+
+.container__tarefa__item__titulo{
+    color: var(--terciario);
+    font-size: 2.5rem;
+}
+
+.container__tarefa__item__quantidade {
+    color: var(--numero);
+    margin-top: 1%;
+    font-size: 1.5em;
+}
+
+
+/*RELATORIO*/
+
+
+.relatorio {
+    padding: 2% 15% 2% 15%;
+}
+
+.relatorio__tabela {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;    
+}
+
+.relatorio__tabela th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #739072;
+    color: var(--terciario)
+}s
+
+.relatorio__tabela td, .relatorio__tabela th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+ 
+.relatorio__tabela td {
+    color: var(--numero);
+}
+
+.relatorio__tabela tr:hover {background-color: #c9dbca;}
+
+
+
+
+
+.rodape {
+    background-color: var(--primario);
+    padding: 1%;
+    text-align: center;
+    color: var(--terciario);
+}

@@ -41,7 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                  $_SESSION["id_usuario"] = $id;
                  $_SESSION["email"] = $email;
                  $_SESSION['nome'] = $nome;
-                 $_SESSION['tipo'] = $tipo;                            
+                 $_SESSION['tipo'] = $tipo; 
+                 $_SESSION['id_setor'] = $setor;                           
                  
                      if($tipo ==! 0){
                              header("location: ./admin/");

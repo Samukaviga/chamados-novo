@@ -1,6 +1,7 @@
 <?php
 
     include_once("../../conexao.php");
+    include_once("../../funcoes/admin.php");
 
     session_start();  
     
@@ -52,6 +53,7 @@
                   <th>Descricao</th>
                   <th>Data Estimada</th>
                   <th>Concluido</th>
+                  <th>Prioridade</th>
                 </tr>
                 <tr>
                   <td>1</td>
@@ -63,6 +65,11 @@
                   <td>
                     <div class="form-check form-switch d-flex justify-content-center align-items-center">
                         <input class="form-check-input" type="checkbox" role="switch">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-switch d-flex justify-content-center align-items-center">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="checkboxPrioridade(this, '<?php echo $id_chamado; ?>', '<?php echo $titulo; ?>')" <?php echo $checkboxPrioridade; ?>>
                     </div>
                   </td>
                 </tr>

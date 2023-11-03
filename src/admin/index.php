@@ -1,12 +1,16 @@
 <?php
 
     include_once("../../conexao.php");
+    include_once("../../funcoes/admin.php");
 
     session_start();  
     
     $id_usuario = $_SESSION["id_usuario"];
     $nome = $_SESSION["nome"];
     $tipo = $_SESSION["tipo"];
+    $setor = $_SESSION["id_setor"];
+
+    var_dump($setor);
 
     if($tipo == 0){
         header("location: ../login.php");
@@ -17,6 +21,16 @@
         header("location: ../login.php");
         exit;
     }
+
+
+    /* FUNCOES */
+        $emAberto = emAberto($pdo, $setor);
+        $emAndamento = emAndamento($pdo, $setor);
+        $concluido = concluido($pdo, $setor);
+
+        $listaEmAndamento = listagemEmAndamento($pdo, $setor);
+        $listaEmAberto = listagemEmAberto($pdo, $setor);
+        $listaConcluido = listagemConcluido($pdo, $setor);
 
 ?>
 <!DOCTYPE html>
@@ -46,21 +60,21 @@
             <div class="container__tarefa__item">
                 <a id="popup__lateral__abrir__aberto" class="container__tarefa__item_link" href="#">
                     <h2 class="container__tarefa__item__titulo">Em Aberto</h2>
-                    <p class="container__tarefa__item__quantidade">2</p>
+                    <p class="container__tarefa__item__quantidade"><?= $emAberto; ?></p>
                 </a>
             </div>
 
             <div class="container__tarefa__item">
                 <a id="popup__lateral__abrir__andamento" class="container__tarefa__item_link" href="#">
                     <h2 class="container__tarefa__item__titulo">Andamento</h2>
-                    <p class="container__tarefa__item__quantidade">2</p>
+                    <p class="container__tarefa__item__quantidade"><?= $emAndamento; ?></p>
                 </a>
             </div>
 
             <div class="container__tarefa__item">
                 <a id="popup__lateral__abrir__concluido" class="container__tarefa__item_link" href="#">
                     <h2 class="container__tarefa__item__titulo">Concluido</h2>
-                    <p class="container__tarefa__item__quantidade">2</p>
+                    <p class="container__tarefa__item__quantidade"><?= $concluido; ?></p>
                 </a>
             </div>
             
@@ -88,19 +102,19 @@
             <div class="popup__lateral__relatorio">
                 <table class="popup__lateral__relatorio__tabela">
                     <tr>
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Setor</th>
-                    <th>Titulo</th>
-                    <th>Data Estimada</th>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Titulo</th>
+                        <th>Prazo de Entrega</th>
                     </tr>
+                    <?php foreach($listaEmAberto as $lista): ?>
                     <tr>
-                    <td>1</td>
-                    <td>Samuel</td>
-                    <td>TI</td>
-                    <td>Site</td>
-                    <td>02/11/ - Quinta feira</td>
+                        <td><?= $lista['id_usuario']; ?></td>
+                        <td><?= $lista['nome']; ?></td>
+                        <td><?= $lista['titulo']; ?></td>
+                        <td><?= $lista['prazo']; ?></td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
     </div>
@@ -113,19 +127,19 @@
             <div class="popup__lateral__relatorio">
                 <table class="popup__lateral__relatorio__tabela">
                     <tr>
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Setor</th>
-                    <th>Titulo</th>
-                    <th>Data Estimada</th>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Titulo</th>
+                        <th>Prazo de Entrega</th>                     
                     </tr>
+                    <?php foreach($listaEmAndamento as $lista): ?>
                     <tr>
-                    <td>1</td>
-                    <td>Gustuvo</td>
-                    <td>Financeiro</td>
-                    <td>Site</td>
-                    <td>02/11/ - Quinta feira</td>
+                        <td><?= $lista['id_usuario']; ?></td>
+                        <td><?= $lista['nome']; ?></td>
+                        <td><?= $lista['titulo']; ?></td>
+                        <td><?= $lista['prazo']; ?></td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
     </div>
@@ -140,17 +154,17 @@
                     <tr>
                     <th>#</th>
                     <th>Nome</th>
-                    <th>Setor</th>
                     <th>Titulo</th>
-                    <th>Data Estimada</th>
+                    <th>Prazo de Entrega</th>
                     </tr>
+                    <?php foreach($listaConcluido as $lista): ?>
                     <tr>
-                    <td>7</td>
-                    <td>Rafael</td>
-                    <td>Cobranca</td>
-                    <td>Site</td>
-                    <td>02/11/ - Quinta feira</td>
+                        <td><?= $lista['id_usuario']; ?></td>
+                        <td><?= $lista['nome']; ?></td>
+                        <td><?= $lista['titulo']; ?></td>
+                        <td><?= $lista['prazo']; ?></td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
     </div>

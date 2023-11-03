@@ -1,3 +1,24 @@
+<?php
+
+    include_once("../../conexao.php");
+
+    session_start();  
+    
+    $id_usuario = $_SESSION["id_usuario"];
+    $nome = $_SESSION["nome"];
+    $tipo = $_SESSION["tipo"];
+
+    if($tipo == 0){
+        header("location: ../login.php");
+        exit;
+    }
+
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: ../login.php");
+        exit;
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +32,13 @@
         <nav class="cabecario__menu">
             <img class="cabecario__logo" src="../../assets/logo.png" alt="">
             <div class="cabecario__navegacao" >
-                <a class="cabecario__navegacao__link" href="../../src/membro/index.html">Home</a>
-                <a class="cabecario__navegacao__link" href="../../src/membro/relatorio.html">Relatorio</a>
+                <a class="cabecario__navegacao__link" href="../../src/admin/">Home</a>
+                <a class="cabecario__navegacao__link" href="../../src/admin/chamados.php">Chamados</a>
+                <a class="cabecario__navegacao__link" href="../../src/admin/relatorio.php">Relatorio</a>
                 <a class="cabecario__navegacao__link" id="mostrar__engrenagem" href="#"><img class="cabecario__navegacao__engrenagem" src="../../assets/7596520.png" alt=""></a>
             </div>
         </nav>
+        <p class="cabeario_usuario">Olá <?= $nome; ?></p>
     </header>
     <main class="alterar__senha">
         <section class="chamado">
@@ -48,8 +71,8 @@
     
          <div id="popup__engrenagem__abrir" class="popup__engrenagem">
             <ul class="popup__engrenagem__lista">
-            <a class="popup__engrenagem__link" href="../membro/alterarSenha.html"><li class="popup__engrenagem__item">Alterar Senha</li></a>
-                <a class="popup__engrenagem__link" href=""><li class="popup__engrenagem__item">Sair</li></a>
+            <a class="popup__engrenagem__link" href="../src/alterarSenha.html"><li class="popup__engrenagem__item">Alterar Senha</li></a>
+                <a class="popup__engrenagem__link" href="../logout.php"><li class="popup__engrenagem__item">Sair</li></a>
             </ul>
         </div>
 

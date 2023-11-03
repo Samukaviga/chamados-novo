@@ -82,6 +82,7 @@ function listagemRelatorio($pdo, $id) {
     chamado.titulo,
     chamado.prazo,
     chamado.prioridade,
+    chamado.status,
     chamado.id_chamado,
     departamento.nome as 'nome_departamento'
 FROM 

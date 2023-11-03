@@ -54,8 +54,10 @@
 
                         <?php 
                             $prioridade = $lista['prioridade']; 
-                            var_dump($prioridade);
-                        
+                            $id_chamado = $lista['id_chamado'];
+                            $titulo = $lista['titulo']; 
+                            $status = $lista['status'];
+                            $checkboxConcluido = ($status == 0) ? 'checked' : '';
                         ?>
 
                 <tr class="<?= $prioridade == 1 ? 'relatorio__prioridade' : ''; ?>">
@@ -68,7 +70,7 @@
                     <td><?= $lista['prazo']; ?></td>
                     <td>
                         <div class="form-check form-switch d-flex justify-content-center align-items-center">
-                            <input class="form-check-input" type="checkbox" role="switch">
+                            <input class="form-check-input" type="checkbox" role="switch" onchange="checkboxConcluido(this, '<?php echo $id_chamado; ?>', '<?php echo $titulo; ?>')" <?= $checkboxConcluido; ?>>
                         </div>
                     </td>
                 </tr>
@@ -87,6 +89,7 @@
         </div>
 
     </main>
-<script src="../../js/funcoes.js" ></script>
+    <script src="../../js/funcoes.js" ></script>
+    <script src="../../js/checkbox-membro/checkbox.js"></script>
 </body>
 </html>

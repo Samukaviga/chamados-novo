@@ -8,6 +8,7 @@
     $id_usuario = $_SESSION["id_usuario"];
     $nome = $_SESSION["nome"];
     $tipo = $_SESSION["tipo"];
+    $setor = $_SESSION["id_setor"];
 
     if($tipo == 0){
         header("location: ../login.php");
@@ -18,6 +19,11 @@
         header("location: ../login.php");
         exit;
     }
+
+
+    /* FUNCOES */
+
+    $listaRelatorio = listagemRelatorio($pdo, $setor);
 
 ?>
 <!DOCTYPE html>
@@ -48,31 +54,41 @@
                 <tr>
                   <th>#</th>
                   <th>Nome</th>
-                  <th>Setor</th>
                   <th>Titulo</th>
                   <th>Descricao</th>
                   <th>Data Estimada</th>
                   <th>Concluido</th>
                   <th>Prioridade</th>
                 </tr>
+                <?php 
+
+                    foreach($listaRelatorio  as $lista): 
+                        
+                    $status = $lista['status'];
+                    $checkboxConcluido = ($status == 0) ? 'checked' : '';
+                    $id_chamado = $lista['id_chamado'];
+                    $titulo = $lista['titulo'];
+                    $prioridade = $lista['prioridade'];
+                    $checkboxPrioridade = ($prioridade == 1) ? 'checked' : '';
+                ?>
                 <tr>
-                  <td>1</td>
-                  <td>Samuel</td>
-                  <td>TI</td>
-                  <td>Site</td>
-                  <td>refatorando codigo</td>
-                  <td>02/11/ - Quinta feira</td>
+                  <td><?= $lista['id_chamado']; ?></td>
+                  <td><?= $lista['nome']; ?></td>
+                  <td><?= $lista['titulo']; ?></td>
+                  <td><?= $lista['mensagem']; ?></td>
+                  <td><?= $lista['prazo']; ?></td>
                   <td>
                     <div class="form-check form-switch d-flex justify-content-center align-items-center">
-                        <input class="form-check-input" type="checkbox" role="switch">
+                    <input class="form-check-input" type="checkbox" role="switch" onchange="checkboxConcluido(this, '<?php // echo $id_chamado; ?>', '<?php // echo $titulo; ?>')" <?= $checkboxConcluido; ?>>
                     </div>
                   </td>
                   <td>
                     <div class="form-check form-switch d-flex justify-content-center align-items-center">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="checkboxPrioridade(this, '<?php echo $id_chamado; ?>', '<?php echo $titulo; ?>')" <?php echo $checkboxPrioridade; ?>>
-                    </div>
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="checkboxPrioridade(this, '<?php echo $id_chamado;  ?>', '<?php  echo $titulo;  ?>')" <?php echo $checkboxPrioridade; ?>>
+                    </div>  
                   </td>
                 </tr>
+                <?php endforeach; ?>
            </table>
             
         </section>
@@ -88,5 +104,7 @@
 
     </main>
 <script src="../../js/funcoes.js" ></script>
+<script src="../../js/checkbox-admin/checkbox.js"></script>
 </body>
+
 </html>

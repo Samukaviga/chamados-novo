@@ -1,12 +1,14 @@
 <?php
 
     include_once("../../conexao.php");
+    include_once("../../funcoes/admin.php");
 
     session_start();  
     
     $id_usuario = $_SESSION["id_usuario"];
     $nome = $_SESSION["nome"];
     $tipo = $_SESSION["tipo"];
+    $setor = $_SESSION["id_setor"];
 
     if($tipo == 0){
         header("location: ../login.php");
@@ -17,6 +19,29 @@
         header("location: ../login.php");
         exit;
     }
+
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+        
+        $usuario = $_POST["usuario"];
+
+        $titulo = $_POST["titulo"];
+        $mensagem = $_POST["mensagem"];
+        $prazo = $_POST["prazo"];
+        $data = date('Y/m/d');
+        $hora = date('H:i');
+        $status = 1;
+        $prioridade = 0;
+        $departamento = obterSetor($pdo, $usuario);
+
+        $mensagemAlerta = realizandoChamado($pdo, $titulo, $mensagem, $usuario, $data, $hora, $prazo, $status, $departamento, $prioridade);
+
+        alerta($mensagemAlerta);
+    }
+
+    /* FUNCOES */
+
+    $listaNome = listagemNome($pdo, $setor);
 
 ?>
 <!DOCTYPE html>
@@ -43,20 +68,30 @@
     <main class="conteudo">
         <section class="chamado">
             
-            <form class="formulario" action="#">
+            <form class="formulario" action="" method="POST">
                 <h1 class="formulario__titulo">Solicitar Chamado</h1>
          
                 <div class="formulario__grupo">
-                    <select class="input" name="" >
-                        <option class="input" value="">Samuel</option>
-                        <option class="input" value="">Gustavo</option>
+                
+                    <select class="input" name="usuario" >
+                        <?php foreach($listaNome as $lista): ?>       
+                            <option class="input" value="<?= $lista['id_usuario']; ?>"><?= $lista['nome']; ?></option>
+                        <?php endforeach; ?>    
                     </select>
+                    
                 </div>
                 
                 <div class="formulario__grupo">
                 
-                    <input type="text" name="text" class="input"  autocomplete="off" required="">
+                    <input type="text" name="titulo" class="input"  autocomplete="off" required="">
                     <label class="formulario__label">Titulo</label>
+                
+                </div>
+                
+                <div class="formulario__grupo">
+                
+                    <input type="text" name="prazo" class="input"  autocomplete="off" required="">
+                    <label class="formulario__label">Prazo: Semana 00/00</label>
                 
                 </div>
                 

@@ -10,8 +10,6 @@
     $tipo = $_SESSION["tipo"];
     $setor = $_SESSION["id_setor"];
 
-    var_dump($setor);
-
     if($tipo == 0){
         header("location: ../login.php");
         exit;

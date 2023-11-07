@@ -86,7 +86,7 @@
     
     <div id="popup__engrenagem__abrir" class="popup__engrenagem">
         <ul class="popup__engrenagem__lista">
-           <a class="popup__engrenagem__link" href="../admin/alterarSenha.html"><li class="popup__engrenagem__item">Alterar Senha</li></a>
+           <a class="popup__engrenagem__link" href="../admin/alterarSenha.php"><li class="popup__engrenagem__item">Alterar Senha</li></a>
             <a class="popup__engrenagem__link" href="../logout.php"><li class="popup__engrenagem__item">Sair</li></a>
         </ul>
     </div>
@@ -109,7 +109,7 @@
                     <tr>
                         <td><?= $lista['id_usuario']; ?></td>
                         <td><?= $lista['nome']; ?></td>
-                        <td><?= $lista['titulo']; ?></td>
+                        <td><a class="poupup__lateral__relatorio__link" href="./arquivo.php?id_chamado=<?=$lista['id_chamado'];?>"><?= $lista['titulo']; ?></a></td>
                         <td><?= $lista['prazo']; ?></td>
                     </tr>
                     <?php endforeach; ?>
@@ -134,7 +134,7 @@
                     <tr>
                         <td><?= $lista['id_usuario']; ?></td>
                         <td><?= $lista['nome']; ?></td>
-                        <td><?= $lista['titulo']; ?></td>
+                        <td><a class="relatorio__link" href="./arquivo.php?id_chamado=<?=$lista['id_chamado']; ?>"><?= $lista['titulo']; ?></a></td>
                         <td><?= $lista['prazo']; ?></td>
                     </tr>
                     <?php endforeach; ?>
@@ -159,7 +159,7 @@
                     <tr>
                         <td><?= $lista['id_usuario']; ?></td>
                         <td><?= $lista['nome']; ?></td>
-                        <td><?= $lista['titulo']; ?></td>
+                        <td><a class="poupup__lateral__relatorio__link" href="./arquivo.php?id_chamado=<?= $lista['id_chamado']; ?>"><?= $lista['titulo']; ?></a></td>
                         <td><?= $lista['prazo']; ?></td>
                     </tr>
                     <?php endforeach; ?>

@@ -40,7 +40,7 @@
         </nav>
         <p class="cabeario_usuario">Olá <?= $nome; ?></p>
     </header>
-    <main class="alterar__senha">
+    <main class="conteudo">
         <section class="chamado">
             
             <form class="formulario formulario__alterar" action="">
@@ -48,15 +48,13 @@
          
                 <div class="formulario__grupo">
                 
-                    <input type="password" name="text" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label">Senha Atual</label>
+                    <input type="password" name="text" class="input" placeholder="Senha Atual" autocomplete="off" required="">
                 
                 </div>
 
                 <div class="formulario__grupo">
                 
-                    <input type="password" name="text" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label">Senha Nova</label>
+                    <input type="password" name="text" class="input" placeholder="Senha Nova" autocomplete="off" required="">
                 
                 </div>
                 
@@ -71,7 +69,7 @@
     
          <div id="popup__engrenagem__abrir" class="popup__engrenagem">
             <ul class="popup__engrenagem__lista">
-            <a class="popup__engrenagem__link" href="../src/alterarSenha.html"><li class="popup__engrenagem__item">Alterar Senha</li></a>
+            <a class="popup__engrenagem__link" href="./alterarSenha.php"><li class="popup__engrenagem__item">Alterar Senha</li></a>
                 <a class="popup__engrenagem__link" href="../logout.php"><li class="popup__engrenagem__item">Sair</li></a>
             </ul>
         </div>

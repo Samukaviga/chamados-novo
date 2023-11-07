@@ -177,6 +177,14 @@ body {
     color: var(--secundario);
 }
 
+.poupup__lateral__relatorio__link{
+    color: var(--secundario);
+}
+
+.poupup__lateral__relatorio__link:hover {
+    color: #f4f5f4;
+}
+
 /*RELATORIO*/
 
 
@@ -208,6 +216,20 @@ body {
     padding: 10px;
 }
 
+.relatorio__tabela__excluir{
+    color: #739072;
+    text-decoration: none;
+}
+
+.relatorio__link{
+    color: var(--numero);
+}
+
+.relatorio__link:hover {
+    color: #f4f5f4;
+}
+
+
 .relatorio__tabela tr:hover {background-color: #c9dbca;}
 
 .relatorio__tabela tr.relatorio__prioridade{
@@ -221,6 +243,7 @@ body {
 }
 
 .formulario {
+
     background:#eee8e8; 
     box-shadow: 1px 0px 1.2px 0px #e3e3e3;
     border-radius:2%;
@@ -282,6 +305,10 @@ body {
 
   /* Alterar Senha */
 
+  .alterar__senha {
+    margin-top: 5%;
+  }
+
   .formulario__alterar {
     width: 40rem;
   }
@@ -295,4 +322,35 @@ body {
     padding: 1%;
     text-align: center;
     color: var(--terciario);
+}
+
+/*ARQUIVO*/
+
+
+.arquivos {
+    margin: 5% 25%;
+}
+
+.arquivos__titulo {
+    color: var(--numero);
+    font-size: 2rem;
+}
+
+.arquivos__arquivo {
+    margin-top: 4%;
+}
+
+.arquivos__excluir{
+    text-decoration: none;
+    border: 2px solid var(--primario);
+    border-radius: 8%;
+    color: rgb(206, 107, 107);
+    padding: 0.5%;
+    margin-left: 2%;
+    font-size: 1rem;
+}
+
+.arquivos__excluir:hover {
+    background-color: var(--secundario);
+    color: rgb(204, 79, 79);
 }

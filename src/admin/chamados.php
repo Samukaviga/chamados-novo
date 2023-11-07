@@ -83,22 +83,21 @@
                 
                 <div class="formulario__grupo">
                 
-                    <input type="text" name="titulo" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label">Titulo</label>
+                    <input type="text" name="titulo" class="input"  autocomplete="off" placeholder="Titulo" required="">
+                    
                 
                 </div>
                 
                 <div class="formulario__grupo">
                 
-                    <input type="text" name="prazo" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label">Prazo: Semana 00/00</label>
+                    <input type="text" name="prazo" class="input"  autocomplete="off" placeholder="Prazo: Semana 00/00" required="">
+                    <!-- <label class="formulario__label">Prazo: Semana 00/00</label> -->
                 
                 </div>
                 
                 <div class="formulario__grupo">
                 
-                    <textarea type="text" class="textarea" name="mensagem" rows="4" autocomplete="off" required=""></textarea>
-                    <label class="formulario__label">Descricao</label>
+                    <textarea type="text" class="textarea" name="mensagem" rows="4" placeholder="Descricao" autocomplete="off" required=""></textarea>
                 
                 </div>
                 <button class="formulario__botao">Enviar</button>

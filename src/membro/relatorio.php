@@ -45,8 +45,8 @@
                 <tr>
                   <th>#</th>
                   <th>Nome</th>
-                  <th>Setor</th>
                   <th>Titulo</th>
+                  <th>Descricao</th>
                   <th>Prazo de Entrega</th>
                   <th>Concluido</th>
                 </tr>
@@ -63,10 +63,10 @@
                 <tr class="<?= $prioridade == 1 ? 'relatorio__prioridade' : ''; ?>">
                     
 
-                    <td><?= $lista['id_usuario']; ?></td>
+                    <td><?= $lista['id_chamado']; ?></td>
                     <td><?= $lista['nome']; ?></td>
-                    <td><?= $lista['nome_setor']; ?></td>
-                    <td><?= $lista['titulo']; ?></td>
+                    <td><a class="relatorio__link" href="./arquivo.php?id_chamado=<?=$lista['id_chamado']; ?>"><?= $lista['titulo']; ?></a></td>
+                    <td><?= $lista['mensagem']; ?></td>
                     <td><?= $lista['prazo']; ?></td>
                     <td>
                         <div class="form-check form-switch d-flex justify-content-center align-items-center">

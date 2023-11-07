@@ -92,9 +92,8 @@
                     </tr>
                     <?php foreach($listaEmAberto as $lista):  ?>
                     <tr>
-
                         <td><?= $lista['id_chamado']; ?></td>
-                        <td><?= $lista['titulo']; ?></td>
+                        <td> <a class="poupup__lateral__relatorio__link" href="../../js/checkbox-membro/adicionandoEmAberto.php?id_chamado=<?=$lista['id_chamado'];?>" class="link-success" id="aberto" onclick="handleClick('<?= $lista['id_chamado'];?>', '<?= $lista['tipo'];?>')"><?php echo $lista['titulo']."<br />\n";?></a></td>
                         <td><?= $lista['prazo']; ?></td>
                     
                    
@@ -124,7 +123,8 @@
                    
 
                         <td><?= $lista['id_chamado']; ?></td>
-                        <td><?= $lista['titulo']; ?></td>
+                        
+                        <td> <a class="poupup__lateral__relatorio__link" href="../../js/checkbox-membro/adicionandoEmAberto.php?id_chamado=<?=$lista['id_chamado'];?>" class="link-success" id="aberto" onclick="handleClick('<?= $lista['id_chamado'];?>', '<?= $lista['tipo'];?>')"><?php echo $lista['titulo']."<br />\n";?></a></td>
                         <td><?= $lista['prazo']; ?></td>
                     
                    
@@ -150,7 +150,7 @@
                     <tr>
 
                         <td><?= $lista['id_chamado']; ?></td>
-                        <td><?= $lista['titulo']; ?></td>
+                        <td><a class="poupup__lateral__relatorio__link" href="./arquivo.php?id_chamado=<?=$lista['id_chamado'];?>"><?= $lista['titulo']; ?></a></td>
                         <td><?= $lista['prazo']; ?></td>
                     
                    
@@ -161,6 +161,7 @@
     </div>
 
 </body>
+    <script src="../../js/checkbox-membro/emAberto.js"></script>
     <script src="../../js/funcoes.js" ></script>
 
 </html> 

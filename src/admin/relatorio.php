@@ -59,6 +59,7 @@
                   <th>Data Estimada</th>
                   <th>Concluido</th>
                   <th>Prioridade</th>
+                  <th>Excluir</th>
                 </tr>
                 <?php 
 
@@ -71,15 +72,15 @@
                     $prioridade = $lista['prioridade'];
                     $checkboxPrioridade = ($prioridade == 1) ? 'checked' : '';
                 ?>
-                <tr>
+                <tr class="<?= $prioridade == 1 ? 'relatorio__prioridade' : ''; ?>" >
                   <td><?= $lista['id_chamado']; ?></td>
                   <td><?= $lista['nome']; ?></td>
-                  <td><?= $lista['titulo']; ?></td>
+                  <td><a class="relatorio__link" href="./arquivo.php?id_chamado=<?= $lista['id_chamado']; ?>"><?= $lista['titulo']; ?></a></td>
                   <td><?= $lista['mensagem']; ?></td>
                   <td><?= $lista['prazo']; ?></td>
                   <td>
                     <div class="form-check form-switch d-flex justify-content-center align-items-center">
-                    <input class="form-check-input" type="checkbox" role="switch" onchange="checkboxConcluido(this, '<?php // echo $id_chamado; ?>', '<?php // echo $titulo; ?>')" <?= $checkboxConcluido; ?>>
+                    <input class="form-check-input" type="checkbox" role="switch" onchange="checkboxConcluido(this, '<?php echo $id_chamado; ?>', '<?php echo $titulo; ?>')" <?= $checkboxConcluido; ?>>
                     </div>
                   </td>
                   <td>
@@ -87,6 +88,7 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="checkboxPrioridade(this, '<?php echo $id_chamado;  ?>', '<?php  echo $titulo;  ?>')" <?php echo $checkboxPrioridade; ?>>
                     </div>  
                   </td>
+                  <td ><a class="relatorio__tabela__excluir" href="./excluirChamado.php?id_chamado=<?= $lista['id_chamado']; ?>">Excluir</a></td>
                 </tr>
                 <?php endforeach; ?>
            </table>

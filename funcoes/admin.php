@@ -121,7 +121,7 @@ function listagemRelatorio($pdo, $setor) {
     INNER JOIN unidade ON unidade.id_unidade = usuario.id_unidade 
     INNER JOIN setor ON usuario.id_setor = setor.id_setor INNER JOIN chamado ON chamado.id_usuario = usuario.id_usuario 
     INNER JOIN departamento on departamento.id_departamento = chamado.id_departamento and departamento.id_departamento = :setor
-    ORDER BY chamado.prioridade DESC, chamado.status DESC";
+    ORDER BY chamado.id_chamado DESC, chamado.status DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":setor", $setor, PDO::PARAM_INT);
     $stmt->execute();
@@ -174,6 +174,24 @@ function obterSetor($pdo, $id_usuario) {
 
 function alerta($mensagem) {
     echo "<script>alert('$mensagem');</script>";
+}
+
+function alertaERedirecionamento($mensagem){
+    echo "<script>alert('$mensagem');</script>";
+    header("Location: ./");
+    exit;
+}
+
+function excluirChamado($pdo, $id) {
+    $sql = "DELETE FROM chamado WHERE id_chamado = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    if($stmt->execute()){
+        return true;   
+    } else {
+        return false;
+    }
 }
 
 

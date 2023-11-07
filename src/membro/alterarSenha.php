@@ -26,13 +26,14 @@
         <nav class="cabecario__menu">
             <img class="cabecario__logo" src="../../assets/logo.png" alt="">
             <div class="cabecario__navegacao" >
-                <a class="cabecario__navegacao__link" href="../../src/membro/">Home</a>
-                <a class="cabecario__navegacao__link" href="../../src/membro/relatorio.php">Relatorio</a>
-                <a class="cabecario__navegacao__link" id="mostrar__engrenagem" href="#"><img class="cabecario__navegacao__engrenagem" src="../../assets/7596520.png" alt=""></a>
+                <a class="cabecario__navegacao__link" href="./">Home</a>
+                <a class="cabecario__navegacao__link" href="./relatorio.php">Relatorio</a>
+                <a class="cabecario__navegacao__link" id="mostrar__engrenagem" href="#"><img class="cabecario__navegacao__engrenagem" src="../../assets/7596520.png" alt="Engrenagem"></a>
             </div>
         </nav>
+        <p class="cabeario_usuario">Olá <?= $nome; ?></p>
     </header>
-    <main class="alterar__senha">
+    <main class="conteudo">
         <section class="chamado">
             
             <form class="formulario formulario__alterar" action="">

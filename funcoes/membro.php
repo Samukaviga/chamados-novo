@@ -45,7 +45,7 @@ function concluido($pdo, $id){
 }
 
 function listagemAndamento($pdo, $id) {
-    $sql = "select chamado.titulo, chamado.id_chamado, chamado.prazo from chamado inner join usuario on usuario.id_usuario = chamado.id_usuario and usuario.id_usuario = :id and chamado.status = 2";
+    $sql = "select chamado.titulo, chamado.id_chamado, usuario.tipo, chamado.prazo from chamado inner join usuario on usuario.id_usuario = chamado.id_usuario and usuario.id_usuario = :id and chamado.status = 2";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -54,7 +54,13 @@ function listagemAndamento($pdo, $id) {
 }
 
 function listagemEmAberto($pdo, $id) {
-    $sql = "select chamado.titulo, chamado.id_chamado, chamado.prazo from chamado inner join usuario on usuario.id_usuario = chamado.id_usuario and usuario.id_usuario = :id and chamado.status = 1";
+    $sql = "SELECT 
+    chamado.titulo, 
+    chamado.id_chamado, 
+    chamado.prazo,
+    usuario.tipo 
+    FROM chamado 
+    inner join usuario on usuario.id_usuario = chamado.id_usuario and usuario.id_usuario = :id and chamado.status = 1";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -63,7 +69,7 @@ function listagemEmAberto($pdo, $id) {
 }
 
 function listagemConcluido($pdo, $id) {
-    $sql = "select chamado.titulo, chamado.id_chamado, chamado.prazo from chamado inner join usuario on usuario.id_usuario = chamado.id_usuario and usuario.id_usuario = :id and chamado.status = 0";
+    $sql = "select chamado.titulo, chamado.id_chamado, usuario.tipo, chamado.prazo from chamado inner join usuario on usuario.id_usuario = chamado.id_usuario and usuario.id_usuario = :id and chamado.status = 0";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -82,6 +88,7 @@ function listagemRelatorio($pdo, $id) {
     chamado.titulo,
     chamado.prazo,
     chamado.prioridade,
+    chamado.mensagem,
     chamado.status,
     chamado.id_chamado,
     departamento.nome as 'nome_departamento'
@@ -99,6 +106,17 @@ WHERE
     $result = $stmt->fetchAll();
     return $result;
 }
+
+function listagemNome($pdo, $setor) {
+
+    $sql = "SELECT id_usuario, nome FROM `usuario` WHERE id_setor = :setor AND tipo = 0;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":setor", $setor, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
 
 
 

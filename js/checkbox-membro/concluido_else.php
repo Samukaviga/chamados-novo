@@ -14,8 +14,9 @@
     $sql = "UPDATE chamado SET status = 2 WHERE id_chamado = :id_usuario";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id_usuario', $id_usuario);
+    
     $stmt->execute();
 
     // Responder com uma mensagem de sucesso
-    echo "Atualizado com sucesso";
+    
 ?>

@@ -70,6 +70,28 @@ function engrenagem() {
     });
 }
 
+function chamados(){
+   
+    const popupChamado = document.querySelector('#popup__lateral__chamado');
+    const popupFecharChamadobt = document.querySelector('#popup__lateral__fechar__chamado');
+
+    popupFecharChamadobt.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        popupChamado.style.display = 'none';
+    })
+
+    const popuoAbrirChamadobt = document.querySelector('#popup__lateral__abrir__chamado');
+
+    popuoAbrirChamadobt.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        popupChamado.style.display = 'block';
+ })
+ 
+}
+
+
 engrenagem();
 
 andamento();

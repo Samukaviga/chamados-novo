@@ -141,6 +141,26 @@ function listagemNome($pdo, $setor) {
     return $result;
 }
 
+function listagemChamadosUsuario($pdo, $id_usuario){
+
+    $sql = "SELECT id_chamado, titulo, prazo FROM chamado WHERE id_usuario = :id;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id", $id_usuario, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function quantidadeChamadosUsuario($pdo, $id_usuario){
+    $sql = "SELECT count(chamado.status) from chamado WHERE id_usuario = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id", $id_usuario, PDO::PARAM_INT);
+    $stmt->execute();
+    $count = $stmt->fetchColumn();
+
+    return $count;
+}
+
 function realizandoChamado($pdo, $titulo, $mensagem, $id_usuario, $data, $hora, $prazo, $status, $departamento, $prioridade) {
     
     $sql = "INSERT INTO chamado (titulo, mensagem, id_usuario, data, hora, status, id_departamento, prioridade, prazo) VALUES (:titulo, :mensagem, :id_usuario, :data, :hora, :status, :departamento, :prioridade, :prazo)";

@@ -1,6 +1,7 @@
 <?php
 
     include_once("../../conexao.php");
+    include_once("../../funcoes/membro.php");
 
     session_start();  
     
@@ -10,6 +11,26 @@
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         header("location: ../login.php");
         exit;
+    }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+        if(empty(trim($_POST["senhaAtual"])) || empty(trim($_POST["senhaNova"]))){
+             alerta("Por favor insira uma senha");
+        } else{
+            
+            $senhaAntiga = $_POST["senhaAtual"];
+            $senhaNova = $_POST["senhaNova"];
+         
+            $alterou = alterarSenha($pdo, $senhaNova, $senhaAntiga, $id_usuario);
+
+            if($alterou){
+                alerta("Senha alterada com sucesso!");
+            } else {
+                alerta("Senha incorreta");
+            }
+        }
+
     }
     
 ?>
@@ -36,20 +57,18 @@
     <main class="conteudo">
         <section class="chamado">
             
-            <form class="formulario formulario__alterar" action="">
+            <form class="formulario formulario__alterar" action="" method="POST">
                 <h1 class="formulario__titulo">Alterar Senha</h1>
          
                 <div class="formulario__grupo">
                 
-                    <input type="password" name="text" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label">Senha Atual</label>
+                    <input type="password" name="senhaAtual" class="input" placeholder="Senha Atual" autocomplete="off" required="">
                 
                 </div>
 
                 <div class="formulario__grupo">
                 
-                    <input type="password" name="text" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label">Senha Nova</label>
+                    <input type="password" name="senhaNova" class="input" placeholder="Senha Nova" autocomplete="off" required="">
                 
                 </div>
                 

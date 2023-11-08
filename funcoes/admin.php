@@ -238,6 +238,43 @@ function excluirMensagem($pdo, $id_mensagem){
 
 }
 
+function alterarSenha($pdo, $senhaNova, $senhaAntiga, $id){
+
+
+    $sql = "SELECT senha FROM usuario WHERE id_usuario = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+        
+        if($stmt->execute()){
+            $sql_senha = $stmt->fetch(); 
+
+            if(password_verify($senhaAntiga, $sql_senha['senha'])){
+
+                $senhaCriptografada = password_hash($senhaNova, PASSWORD_DEFAULT);
+
+                $sql = "UPDATE usuario SET senha = :senha WHERE id_usuario = :id";
+                
+                if($stmt = $pdo->prepare($sql)){
+                    $stmt->bindParam(":senha", $senhaCriptografada, PDO::PARAM_STR);
+                    $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+                    $stmt->execute();
+
+                    if($stmt->rowCount()){
+                       return true;
+                    } 
+                
+                } else {
+                    return false;
+                }
+            }
+
+        } else {
+            return false;
+        }
+  
+
+}
+
 
 
 

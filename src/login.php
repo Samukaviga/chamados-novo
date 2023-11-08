@@ -24,7 +24,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $usuario = buscandoUsuario($pdo, $email);
 
         if($usuario){
-            var_dump($usuario);
 
             $id = $usuario["id_usuario"];
             $email = $usuario["email"];

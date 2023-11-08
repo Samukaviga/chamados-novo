@@ -27,6 +27,8 @@
 
     if($_GET['id_chamado']){
         $_SESSION['id_chamado'] = $_GET['id_chamado'];
+
+        $listaMensagens = buscandoMensagem($pdo, $_SESSION['id_chamado']);
     }
 
     /* FUNCOES */
@@ -35,7 +37,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,6 +80,23 @@
                             }
                     
                     ?>
+                </div>
+
+                <div class="container__mensagem">
+                          
+                        <?php if(isset($listaMensagens)): ?>
+                            
+                            <?php foreach($listaMensagens as $lista): ?>
+
+                            <h2 class="container__mensagem__titulo"><?= $lista['titulo']; ?></h2>
+                          
+                            <p class="container__mensagem__texto"><?= $lista['texto']; ?></p>
+                            
+                            <div class="div__texto__botao" >
+                                <a href="./excluirMensagem.php?id_mensagem=<?= $lista['id_mensagem_chamado']; ?>" class="texto__botao__excluir">Excluir</a>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                 </div>
             
         </section>

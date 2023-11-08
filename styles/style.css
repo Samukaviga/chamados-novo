@@ -241,6 +241,8 @@ body {
 
 .chamado {
     padding-top: 2%;
+    padding-bottom: 5%;
+    
 }
 
 .formulario {
@@ -251,6 +253,7 @@ body {
     max-width: 50%;
     margin: auto;
     padding:2em;
+    margin-top: 1%;
   }
 
   .formulario__titulo {
@@ -329,7 +332,7 @@ body {
 
 
 .arquivos {
-    margin: 5% 25%;
+    margin: 2% 25%;
 }
 
 .arquivos__titulo {
@@ -352,6 +355,52 @@ body {
 }
 
 .arquivos__excluir:hover {
+    background-color: var(--secundario);
+    color: rgb(204, 79, 79);
+}
+
+
+.container__mensagem {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 25% 2% 25%;
+    background-color: #f5f5f5;
+    padding: 2%;
+    border: 2px solid var(--primario);
+   
+    
+}
+
+.container__mensagem__texto {
+    color: var(--numero);
+    letter-spacing: 1px;
+    line-height: 1.8;
+   
+}
+
+.container__mensagem__titulo {
+    color: var(--numero);
+    margin-bottom: 2%;
+}
+
+.div__texto__botao {
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid var(--hover);
+}
+
+.texto__botao__excluir {
+    text-decoration: none;
+    border: 2px solid var(--primario);
+    border-radius: 8%;
+    color: rgb(206, 107, 107);
+    padding: 0.5%;
+    margin-left: 2%;
+    font-size: 1rem;
+    margin-bottom: 1%;
+}
+
+.texto__botao__excluir:hover {
     background-color: var(--secundario);
     color: rgb(204, 79, 79);
 }

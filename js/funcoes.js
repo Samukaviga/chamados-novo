@@ -52,7 +52,9 @@ function concluido() {
             event.preventDefault();
 
             popupConcluido.style.display = 'block';
-     })
+         })
+
+        
 }
 
 function engrenagem() {
@@ -88,6 +90,10 @@ function chamados(){
 
         popupChamado.style.display = 'block';
  })
+
+    document.addEventListener('click', (event) => {
+        popupChamado.style.display = 'none';
+    });
  
 }
 

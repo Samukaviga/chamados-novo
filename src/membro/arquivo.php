@@ -22,9 +22,11 @@
 
     if($_GET['id_chamado']){
         $_SESSION['id_chamado'] = $_GET['id_chamado'];
+
+        $listaMensagens = buscandoMensagem($pdo, $_SESSION['id_chamado']);
     }
 
-/*
+    /*
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         if(isset($_FILES['file'])) {
             $file = $_FILES['file'];
@@ -70,10 +72,11 @@
     /* FUNCOES */
 
     $listaNome = listagemNome($pdo, $setor);
+    
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,27 +98,24 @@
     <main class="conteudo">
         <section class="chamado">
             
-      
- <!--
-            <form class="formulario" action="" method="POST" enctype="multpart/form-data">
-                <h1 class="formulario__titulo">Arquivo</h1>
-                
-                <div class="formulario__grupo">
-                
-                    <input type="file" name="arquivo" class="input"  autocomplete="off" required="">
-                    <label class="formulario__label"></label>
-                
-                </div>
-                    <input type="submit" name="enviar">
-               <button type="submit" name="enviar" class="formulario__botao">Enviar</button> 
-            </form> -->
 
             <form class="formulario" action="" method="post" enctype="multipart/form-data">
-                <h1 class="formulario__titulo">Selecione o arquivo</h1>
+                <h1 class="formulario__titulo">Selecione um arquivo</h1>
 
                 <input type="file" name="arquivo">
                 <input type="submit" name="enviar">
             </form>
+
+            <form class="formulario" action="./mensagem.php" method="post">
+                    <h1 class="formulario__titulo">Adicione um Texto</h1>
+
+                    <textarea type="text" class="textarea" name="mensagem" rows="6" placeholder="Descricao" autocomplete="off" required=""></textarea>
+                    
+                    <div>
+                        <input class="formulario__botao" type="submit" name="enviar">
+                    </div>
+                </form>
+
 
                 <div class="arquivos">
                     <?php 
@@ -138,6 +138,26 @@
                     
                     ?>
                 </div>
+
+               
+
+                <div class="container__mensagem">
+                          
+                        <?php if(isset($listaMensagens)): ?>
+                            
+                            <?php foreach($listaMensagens as $lista): ?>
+
+                            <h2 class="container__mensagem__titulo"><?= $lista['titulo']; ?></h2>
+                          
+                            <p class="container__mensagem__texto"><?= $lista['texto']; ?></p>
+                            
+                            <div class="div__texto__botao" >
+                                <a href="./excluirMensagem.php?id_mensagem=<?= $lista['id_mensagem_chamado']; ?>" class="texto__botao__excluir">Excluir</a>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                </div>
+
         </section>
 
          <!-- ENGRENAGEM --->

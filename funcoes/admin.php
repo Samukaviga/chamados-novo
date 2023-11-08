@@ -214,6 +214,30 @@ function excluirChamado($pdo, $id) {
     }
 }
 
+function buscandoMensagem($pdo, $id_chamado){
+   
+    $sql = "SELECT mensagem_chamado.texto, chamado.titulo, mensagem_chamado.id_mensagem_chamado FROM `mensagem_chamado` INNER JOIN chamado ON chamado.id_chamado = mensagem_chamado.id_chamado WHERE mensagem_chamado.id_chamado = :id_chamado";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id_chamado", $id_chamado, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function excluirMensagem($pdo, $id_mensagem){
+    
+    $sql = "DELETE FROM mensagem_chamado WHERE id_mensagem_chamado = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id_mensagem, PDO::PARAM_INT);
+
+    if($stmt->execute()){
+        return true;   
+    } else {
+        return false;
+}
+
+}
+
 
 
 

@@ -2,7 +2,7 @@
 
 $host = "104.131.181.112";
 $user = "juliano-u6B3gnF";
-$pass = "@KTuMHVLNjI1bJPq8";
+$pass = "";
 $dbname = "chamados";
 $port = 3306;
 

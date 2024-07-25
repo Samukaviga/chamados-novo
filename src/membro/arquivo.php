@@ -23,7 +23,9 @@
     if($_GET['id_chamado']){
         $_SESSION['id_chamado'] = $_GET['id_chamado'];
 
+        
         $listaMensagens = buscandoMensagem($pdo, $_SESSION['id_chamado']);
+        
     }
 
     /*
